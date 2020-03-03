@@ -58,7 +58,7 @@
       "path": "node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run test:nowatch -- --coverage && codecov && npm run build"
+      "pre-commit": "npm run test:nowatch && npm run build"
     }
   },
   "devDependencies": {
