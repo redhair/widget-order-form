@@ -12,5 +12,9 @@
 git clone https://github.com/redhair/widget-order-form
 cd widget-order-form
 npm install
-npm start
+npm start:all
 ```
+
+## TODO
+
+- Add tests to server
