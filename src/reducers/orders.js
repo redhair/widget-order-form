@@ -1,4 +1,4 @@
-import { CREATE_ORDER, RESET_ORDER } from '../constants';
+import { CREATE_ORDER } from '../constants';
 
 const initialState = {};
 
@@ -9,8 +9,6 @@ const loading = (state = initialState, action) => {
         ...state,
         ...action.order
       };
-    case RESET_ORDER:
-      return {};
     default:
       return state;
   }

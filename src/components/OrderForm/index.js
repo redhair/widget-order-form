@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 OrderForm.propTypes = {
+  order: PropTypes.object,
   onSubmit: PropTypes.func.isRequired
 };
 
@@ -29,18 +30,22 @@ const OrderFormSchema = Yup.object().shape({
     .required('Required')
 });
 
-function OrderForm({ onSubmit }) {
+function OrderForm({ order, onSubmit }) {
+  const initial =
+    order && Object.keys(order).length > 0
+      ? {
+          ...order,
+          date_needed: order.date_needed.split('T')[0]
+        }
+      : {
+          quantity: '',
+          color: '',
+          date_needed: '',
+          type: ''
+        };
+
   return (
-    <Formik
-      initialValues={{
-        quantity: '',
-        color: '',
-        date_needed: '',
-        type: ''
-      }}
-      validationSchema={OrderFormSchema}
-      onSubmit={onSubmit}
-    >
+    <Formik initialValues={initial} validationSchema={OrderFormSchema} onSubmit={onSubmit}>
       {() => (
         <Form>
           <Field type="number" name="quantity" min="1" placeholder="Quantity" />

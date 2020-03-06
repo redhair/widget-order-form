@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import loadingReducer from './loading';
+import statusReducer from './status';
 import orderReducer from './orders';
 
 const rootReducer = combineReducers({
-  loading: loadingReducer,
+  status: statusReducer,
   order: orderReducer
 });
 

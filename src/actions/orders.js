@@ -1,11 +1,5 @@
-import { CREATE_ORDER, RESET_ORDER } from '../constants';
+import { CREATE_ORDER } from '../constants';
 import { postOrder } from '../api';
-
-export const resetOrder = () => {
-  return {
-    type: RESET_ORDER
-  };
-};
 
 export const createOrder = order => {
   return {
