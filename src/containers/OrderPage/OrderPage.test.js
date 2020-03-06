@@ -4,15 +4,15 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../../reducers';
 import { Provider } from 'react-redux';
-import App from '.';
+import OrderPage from '.';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-describe('<App />', () => {
+describe('<OrderPage />', () => {
   it('works', () => {
     render(
       <Provider store={store}>
-        <App />
+        <OrderPage />
       </Provider>
     );
   });
