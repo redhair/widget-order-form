@@ -31,7 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:server": "mocha server/test.js",
-    "test:all": "concurrently \"npm t\" \"npm run test:server\"",
+    "test:all": "concurrently \"npm run test:nowatch\" \"npm run test:server\"",
     "coverage": "react-scripts test --coverage",
     "test:nowatch": "CI=true react-scripts test",
     "eject": "react-scripts eject",
@@ -71,7 +71,7 @@
       "path": "node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run test:nowatch && npm run build"
+      "pre-commit": "npm run test:all && npm run build"
     }
   },
   "devDependencies": {
