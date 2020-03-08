@@ -20,15 +20,15 @@ const logger = store => next => action => {
   return result;
 };
 
-const persistConfig = {
-  key: 'root',
-  storage
-};
-
+const persistConfig = { key: 'root', storage };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const store = createStore(persistedReducer, applyMiddleware(thunk, logger));
+let middleware = [thunk];
+if (process.env.NODE_ENV !== 'production') {
+  middleware = [...middleware, logger];
+}
 
+const store = createStore(persistedReducer, applyMiddleware(...middleware));
 const persistor = persistStore(store);
 
 ReactDOM.render(

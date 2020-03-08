@@ -5,9 +5,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
 const logger = require('morgan');
-const path = require('path');
 const mongoose = require('mongoose');
-
 const port = process.env.PORT || 8080;
 
 mongoose.connect(`mongodb://127.0.0.1:27017/widget-orders`, {
