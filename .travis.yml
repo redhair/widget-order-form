@@ -10,6 +10,5 @@ cache:
     - node_modules
 
 script:
+  - npm run test:all
   - npm run build
-  - npm install -g codecov
-  - npm test -- --coverage && npm run test:server && codecov
